@@ -1153,7 +1153,6 @@ EOF
 #----------End:Beta Diversity--------------------------------#
 
 
-
 #----------Start:Advance analysis--------------------------------#
 
 
@@ -1186,10 +1185,7 @@ cat <<EOF >report_files/advance_analysis.html
   </tbody>
 </table>
 
-Many different aspects of
-the analysis can be explored further, if provided&nbsp;more
-information about the attributes of the sample like grouping (control
-vs treatment), attributes (pH, environmental factors) etc. For example
+Many different aspects of microbiome analysis can be explored further using more sophisticated statustical analysis available in the QIIME package. For example
 <ol>
   <li>Is there any statistical difference
 between&nbsp;biological samples (control vs treatment or different
