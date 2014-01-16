@@ -51,7 +51,7 @@ else
   fastqcplot.sh
   report_overview.sh
   cd ..
-  echo -e "\nFastqc analysis done. Please check the HTML report \"FASTQC_overview.sh\"\n"
+  echo -e "\nFastqc analysis done. Please check the HTML report \"FASTQC_overview.html\"\n"
 
 fi
 
