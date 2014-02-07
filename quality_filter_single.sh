@@ -20,7 +20,7 @@ FIL_FASTQ="filtered_fastq"
 mkdir $FIL_FASTQ
 
 # Running the QC on fastq files ###
-echo -e "\nRunning the QC filtering on all fastq.gz files in the directory ${RAW_DATA}"
+echo -e "\nRunning the QC filtering on all fastq / fastq.gz files in the directory ${RAW_DATA}"
 
 for file in $( ls ${RAW_DATA}/*.fastq.gz) ; 
 do 
@@ -29,8 +29,15 @@ do
 
 done
 
+for file in $( ls ${RAW_DATA}/*.fastq) ;
+do
+  #copying raw data
+  cp $file .
 
-echo -e ""
+done
+
+
+echo -e "\n Uncompressing the files before analysis"
 # Unzipping all gz files
 gunzip -v *.fastq.gz
 

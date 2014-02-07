@@ -208,7 +208,7 @@ sample and&nbsp;their initial quality statistics.<br><br>
 
 EOF
 
-if [ -e fastqc_beforeqcf/qcstats.txt ]; then
+if [ -e fastqc_rawdata/qcstats.txt ]; then
 echo -e '<table style="text-align: left; width: 900px; height: 61px;margin-left: 60px;" border="1" cellpadding="2" cellspacing="1">'>>report_files/initial_overview.html
 echo -e "<thead><tr><th>Count</th><th>Sample Name</th><th>Sequences </th><th>Read Length </th> <th>GC Content </th><th> FastQC Plots</th></tr> </thead><tbody>">>report_files/initial_overview.html
 COUNT=1;
@@ -217,9 +217,9 @@ while read line
 do
 	arrIN=(${line/// })
 fastqclink=${arrIN[0]/.fastq.gz/}
-echo "<tr><td>${COUNT}</td><td>${arrIN[0]}</td><td>${arrIN[1]}</td><td>${arrIN[2]}</td><td>${arrIN[3]}</td><td><a href=\"../fastqc_beforeqcf/${fastqclink}_fastqc/fastqc_report.html\" target=\"_blank\">FASTQC</a><img style=\"width: 14px; height: 13px;\" alt=\"\" src=\"oinw.gif\"></tr>">>report_files/initial_overview.html
+echo "<tr><td>${COUNT}</td><td>${arrIN[0]}</td><td>${arrIN[1]}</td><td>${arrIN[2]}</td><td>${arrIN[3]}</td><td><a href=\"../fastqc_rawdata/${fastqclink}_fastqc/fastqc_report.html\" target=\"_blank\">FASTQC</a><img style=\"width: 14px; height: 13px;\" alt=\"\" src=\"oinw.gif\"></tr>">>report_files/initial_overview.html
 COUNT=$(($COUNT + 1 ));
-done <fastqc_beforeqcf/qcstats.txt
+done <fastqc_rawdata/qcstats.txt
 
 echo "</tbody></table>">>report_files/initial_overview.html
 fi
@@ -227,15 +227,15 @@ cat <<EOF >>report_files/initial_overview.html
 
 <br>
 <img style="width: 1000px; height: 700px;" alt=""
- src="../fastqc_beforeqcf/FASTQCplot.png"><br>
+ src="../fastqc_rawdata/FASTQCplot.png"><br>
 <br>
 Dowload the raw dataset (tab delimited format, right click -> save link as)<br>
 <ol>
   <li>
-	<a href="../fastqc_beforeqcf/qcstats.txt" target="_blank">Sample stats file</a>
+	<a href="../fastqc_rawdata/qcstats.txt" target="_blank">Sample stats file</a>
   </li>
   <li>
-	<a href="../fastqc_beforeqcf/qcplot.txt" target="_blank">Per base sequence quality file</a>
+	<a href="../fastqc_rawdata/qcplot.txt" target="_blank">Per base sequence quality file</a>
 </li>
 </ol>
 <br>
@@ -329,7 +329,7 @@ sample and their quality statistics.
 </span><br><br>
 EOF
 
-if [ -e fastqc_afterqcf/qcstats.txt ]; then
+if [ -e fastqc_filterdata/qcstats.txt ]; then
 echo -e '<table style="text-align: left; width: 900px; height: 61px;margin-left: 60px;" border="1" cellpadding="2" cellspacing="1">'>>report_files/quality_control.html
 echo -e "<thead><tr><th>Count</th><th>Sample Name</th><th>Sequences </th><th>Read Length </th> <th>GC Content </th><th> FastQC Plots</th></tr> </thead><tbody>">>report_files/quality_control.html
 COUNT=1;
@@ -337,9 +337,9 @@ while read line
 do
         arrIN=(${line/// })
 fastqclink=${arrIN[0]/.fastq.gz/}
-echo -e "<tr><td>${COUNT}</td><td>${arrIN[0]}</td><td>${arrIN[1]}</td><td>${arrIN[2]}</td><td>${arrIN[3]}</td><td><a href=\"../fastqc_afterqcf/${fastqclink}_fastqc/fastqc_report.html\" target=\"_blank\">FASTQC</a><img style=\"width: 14px; height: 13px;\" alt=\"\" src=\"oinw.gif\"></tr>">>report_files/quality_control.html
+echo -e "<tr><td>${COUNT}</td><td>${arrIN[0]}</td><td>${arrIN[1]}</td><td>${arrIN[2]}</td><td>${arrIN[3]}</td><td><a href=\"../fastqc_filerdata/${fastqclink}_fastqc/fastqc_report.html\" target=\"_blank\">FASTQC</a><img style=\"width: 14px; height: 13px;\" alt=\"\" src=\"oinw.gif\"></tr>">>report_files/quality_control.html
 COUNT=$(($COUNT + 1 ));
-done <fastqc_afterqcf/qcstats.txt
+done <fastqc_filterdata/qcstats.txt
 echo "</tbody></table>">>report_files/quality_control.html
 fi
 cat <<EOF >>report_files/quality_control.html
@@ -351,15 +351,15 @@ cat <<EOF >>report_files/quality_control.html
 The individual quality plots from all samples are combined below to
 provide a overview merged quality plot. The plot shows the mean Qscore vs base position for all samples.<br>
 <img style="width: 1000px; height: 700px;" alt=""
- src="../fastqc_afterqcf/FASTQCplot.png"><br>
+ src="../fastqc_filterdata/FASTQCplot.png"><br>
 <br>
 Dowload the raw dataset after applying QC measures (tab delimited format, right click -> save link as)<br>
 <ol>
   <li>
-        <a href="../fastqc_afterqcf/qcstats.txt" target="_blank">Sample stats file</a>
+        <a href="../fastqc_filterdata/qcstats.txt" target="_blank">Sample stats file</a>
   </li>
   <li>
-        <a href="../fastqc_afterqcf/qcplot.txt" target="_blank">Per base sequence quality file</a>
+        <a href="../fastqc_filterdata/qcplot.txt" target="_blank">Per base sequence quality file</a>
 </li>
 </ol>
 <br>
