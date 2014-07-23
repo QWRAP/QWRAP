@@ -39,8 +39,8 @@ else
   mkdir fastqc_rawdata
 
   echo -e "\nRunning the FASTQC program on all the fastq / fastq.gz files in folder \"${FWD_READ_FOLDER}\"\n"
-  fastqc --nogroup ${FWD_READ_FOLDER}/*.fastq.gz -o fastqc_rawdata
-  fastqc --nogroup ${FWD_READ_FOLDER}/*.fastq -o fastqc_rawdata
+  fastqc --nogroup --extract ${FWD_READ_FOLDER}/*.fastq.gz -o fastqc_rawdata
+  fastqc --nogroup --extract ${FWD_READ_FOLDER}/*.fastq -o fastqc_rawdata
   echo -e "\nFastqc run completed from folder ${FWD_READ_FOLDER}\n"
 
   cd fastqc_rawdata

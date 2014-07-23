@@ -39,7 +39,7 @@ else
   mkdir fastqc_filterdata
 
   echo -e "\nRunning the FASTQC program on all the fastq files in folder \"${FWD_READ_FOLDER}\"\n"
-  fastqc --nogroup ${FWD_READ_FOLDER}/*.fastq -o fastqc_filterdata
+  fastqc --nogroup --extract ${FWD_READ_FOLDER}/*.fastq -o fastqc_filterdata
   echo -e "\nFastqc run completed from folder ${FWD_READ_FOLDER}\n"
 
   cd fastqc_filterdata

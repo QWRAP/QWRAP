@@ -35,7 +35,7 @@ else
   mkdir fastqc_afterqcf
 
   echo -e "\nRunning the FASTQC program on all the fastq.gz files in folder \"${FWD_READ_FOLDER}\"\n"
-  fastqc --nogroup ${FWD_READ_FOLDER}*.fastq.gz -o fastqc_afterqcf
+  fastqc --nogroup --extract ${FWD_READ_FOLDER}*.fastq.gz -o fastqc_afterqcf
   echo -e "\nFastqc run completed from folder ${FWD_READ_FOLDER}\n"
 
   cd fastqc_afterqcf
@@ -67,7 +67,7 @@ else
   mkdir fastqc_afterqcr
 
   echo -e "\nRunning the FASTQC program on all the fastq.gz files in folder \"${REV_READ_FOLDER}\"\n"
-  fastqc --nogroup ${REV_READ_FOLDER}*.fastq.gz -o fastqc_afterqcr
+  fastqc --nogroup --extract ${REV_READ_FOLDER}*.fastq.gz -o fastqc_afterqcr
   echo -e "\nFastqc run completed from folder ${REV_READ_FOLDER}\n"
 
   cd fastqc_afterqcr

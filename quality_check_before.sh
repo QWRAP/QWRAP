@@ -44,8 +44,8 @@ fi
   mkdir fastqc_beforeqcf
 
   echo -e "\nRunning the FASTQC program on all the fastq.gz files in folder \"${FWD_READ_FOLDER}\"\n"
-  fastqc --nogroup ${FWD_READ_FOLDER}/*.fastq.gz -o fastqc_beforeqcf
-  fastqc --nogroup ${FWD_READ_FOLDER}/*.fastq -o fastqc_beforeqcf
+  fastqc --nogroup --extract ${FWD_READ_FOLDER}/*.fastq.gz -o fastqc_beforeqcf
+  fastqc --nogroup --extract ${FWD_READ_FOLDER}/*.fastq -o fastqc_beforeqcf
   echo -e "\nFastqc run completed from folder ${FWD_READ_FOLDER}\n"
 
   cd fastqc_beforeqcf
@@ -70,8 +70,8 @@ echo -e "-----------------------------------------------------\n"
   mkdir fastqc_beforeqcr
 
   echo -e "\nRunning the FASTQC program on all the fastq.gz files in folder \"${REV_READ_FOLDER}\"\n"
-  fastqc --nogroup ${REV_READ_FOLDER}/*.fastq.gz -o fastqc_beforeqcr
-  fastqc --nogroup ${REV_READ_FOLDER}/*.fastq -o fastqc_beforeqcr
+  fastqc --nogroup --extract ${REV_READ_FOLDER}/*.fastq.gz -o fastqc_beforeqcr
+  fastqc --nogroup --extract ${REV_READ_FOLDER}/*.fastq -o fastqc_beforeqcr
   echo -e "\nFastqc run completed from folder ${REV_READ_FOLDER}\n"
 
   cd fastqc_beforeqcr
