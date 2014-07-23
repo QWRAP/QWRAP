@@ -32,8 +32,16 @@ else
     echo -e "Checking FASTX: Success"
 fi
 
-# Testing USEARCH
+# Testing USEARCH61
 OUTPUT=$(usearch61 2>&1)
+if [[ $OUTPUT =~ 'command not found' ]]; then
+    echo -e "Checking USEARCH61: Failed"
+else
+    echo -e "Checking USEARCH61: Success"
+fi
+
+# Testing USEARCH
+OUTPUT=$(usearch 2>&1)
 if [[ $OUTPUT =~ 'command not found' ]]; then
     echo -e "Checking USEARCH: Failed"
 else

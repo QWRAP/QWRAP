@@ -190,7 +190,7 @@ do
 fastqclink=${arrIN[0]/.fastq.gz/}
 echo "<tr><td>${COUNT}</td><td>${arrIN[0]}</td><td>${arrIN[1]}</td><td>${arrIN[2]}</td><td>${arrIN[3]}</td><td><a href=\"../fastqc_beforeqcf/${fastqclink}_fastqc/fastqc_report.html\" target=\"_blank\">FASTQC</a><img style=\"width: 14px; height: 13px;\" alt=\"\" src=\"oinw.gif\"></tr>">>report_files/initial_overview.html
 COUNT=$(($COUNT + 1 ));
-done <fastqc_beforeqcr/qcstats.txt
+done <fastqc_beforeqcf/qcstats.txt
 
 echo "</tbody></table>">>report_files/initial_overview.html
 fi
