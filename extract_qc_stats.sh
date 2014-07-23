@@ -38,7 +38,7 @@ do
 	newfile=${newfile/.\//};
 	echo -e "base\t${newfile}">>qcplot.txt
 	A=$(grep -P -n "#Base\tMean" $file | cut -f 1 -d ":")
-	B=$(grep -P -n ">>Per sequence quality scores" $file | cut -f 1 -d ":")
+	B=$(grep -P -n ">>Per tile sequence quality" $file | cut -f 1 -d ":")
 	C=$(($B-2))
 	D=$(($C-$A))
 	head -$C $file|tail -$D|cut -f 1,2 >>qcplot.txt
@@ -50,7 +50,7 @@ do
         newfile=${newfile/.\//};
 	echo -e "$newfile">>temp.txt
         A=$(grep -P -n "#Base\tMean" $file | cut -f 1 -d ":")
-        B=$(grep -P -n ">>Per sequence quality scores" $file | cut -f 1 -d ":")
+        B=$(grep -P -n ">>Per tile sequence quality" $file | cut -f 1 -d ":")
         C=$(($B-2))
         D=$(($C-$A))
         head -$C $file|tail -$D|cut -f 2 >>temp.txt
