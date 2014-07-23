@@ -27,7 +27,7 @@ exit
 
 else 
  echo -e "\nReading the content of folder \"${RAW_FOLDER_NAME}\"\n"
- ls ${RAW_FOLDER_NAME}*.fastq.gz | paste - - > Paired_Filelist.txt.tmp
+ ls ${RAW_FOLDER_NAME}/*.fastq.gz | paste - - > Paired_Filelist.txt.tmp
  echo -e "Predicting the merged file name and removing underscore..."
  
  rm -f Paired_Filelist.txt

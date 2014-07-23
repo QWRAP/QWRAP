@@ -4,17 +4,33 @@
 # Author - Ranjit Kumar (ranjit58@gmail.com)
 #-------------------------------------------------------------------------
 
-# Usage : quality_filter_single.sh INPUT_FOLDER TRIM_LENGTH 
-
-# User can edit this
-# For QC process, keep only  reads where >80% bases have a Q Score >20. To achieve this two parameters are used
-QC_PERCENT=80
-QC_SCORE=20
-#--------------
+# Usage : quality_filter_single.sh INPUT_FOLDER TRIM_LENGTH QC_PERCENT QC_SCORE
 
 # Parameters for QC filtering ###
 RAW_DATA=$1
 FWD_TRIM=$2
+QC_PERCENT=$3
+QC_SCORE=$4
+
+
+#Check for raw data folder
+if [ ! -e $1 ]
+then
+  echo -e "\nERROR : FOLDER containing the raw data ${DIR} is not found"
+  echo -e "Usage : quality_filter_single.sh INPUT_FOLDER TRIM_LENGTH QC_PERCENT QC_SCORE"
+  echo -e "\nTerminating the program...\n"
+  exit
+fi
+
+
+#Check number of command line arguments
+if [ $# -ne 4 ]; then
+  echo -e "\nPlease supply all command-line arguments (4)"
+  echo -e "Usage : quality_filter_single.sh INPUT_FOLDER TRIM_LENGTH QC_PERCENT QC_SCORE"
+  echo -e "\nTerminating the program...\n"
+  exit
+fi
+
 FIL_FASTQ="filtered_fastq"
 
 mkdir $FIL_FASTQ
@@ -50,13 +66,13 @@ do
   echo -e "\n--Working on file $file --"
 
   # Trimming reads
-  echo -e "Trimming till first ${FWD_TRIM} bases"
+  echo -e "Trimming to keep the first ${FWD_TRIM} bases"
   fastx_trimmer -l $FWD_TRIM -i temp.fastq -o temp2.fastq -Q 33
   rm -f temp.fastq
   mv temp2.fastq temp.fastq
 
   # Doing first round quality filtering, removing read if
-  echo -e "Running QC : keep only  reads where more than ${QC_PERCENT}% bases have a QScore > ${QC_SCORE}"
+  echo -e "Running QC : keep only  reads where >= ${QC_PERCENT}% bases have a QScore > ${QC_SCORE}"
   fastq_quality_filter -q ${QC_SCORE} -p ${QC_PERCENT} -i temp.fastq -o temp2.fastq -Q 33
   rm -f temp.fastq
   #mv temp2.fastq temp.fastq  
@@ -80,7 +96,7 @@ done
 echo -e "\nRunning the fastq to fasta converison for all fastq files in the directory"
 for file in $( ls *.fastq) ;
 do
-  echo -e "Converting fastq to fasta for file $file"
+  echo -e "Converting fastq to fasta for $file"
   fastq_to_fasta -r -i $file -o `echo $file|sed -e 's/fastq/fasta/g'` -Q33 ; 
   rm -f $file
 done

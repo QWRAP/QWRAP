@@ -38,17 +38,7 @@ cat <<EOF >>microbiome_report.html
 </h1>
 <br style="font-family: Verdana;">
 <div style="margin-left: 40px; font-family: Verdana;">
-<h2><span style="font-weight: normal; color: rgb(153, 0, 0);">Quick Browse</span></h2>
-</div>
-<ol style="margin-left: 40px; font-family: Verdana;">
-  <li>
-      <p><a  href="report_files/quick_browse.html">Quick browse (selected commonly viewed results and plots)</a></p>
-        </li>
-        </ol>
-
-        <br>
-  <div style="margin-left: 40px; font-family: Verdana;">
-  <h2><span style="font-weight: normal; color: rgb(153, 0, 0);">Detailed result (with explanation)</span></h2>
+  <h2><span style="font-weight: normal; color: rgb(153, 0, 0);">Results</span></h2>
   
   <ol>
   <li>
@@ -61,17 +51,15 @@ cat <<EOF >>microbiome_report.html
 Control</a></p>
   </li>
   <li>
-    <p><a  href="report_files/sample_mapping.html">Sample
-selected for analysis and mapping information</a></p>
+    <p><a  href="report_files/sample_mapping.html">Mapping file and Analysis workflow</a></p>
   </li>
 <li>
-    <p><a  href="report_files/results_otu.html">Results: OTU table, 16S Sequence and Taxonomic Identification</a></p>
+    <p><a  href="report_files/results_otu.html">Results: OTU tables (Normalized and Filtered)</a></p>
   </li>
 
   <li>
     <p><a  href="report_files/summarize_taxonomy.html">Summarize
-OTUs by Taxonomic distrubution</a> (<a target="_blank"
- href="report_files/summarize_taxonomy_trimmed.html">Filtered Version</a>) </p>
+OTUs by Taxonomic distrubution</a> </p>
   </li>
   <li>
     <p><a  href="report_files/alpha_diversity.html">Diversity
@@ -84,6 +72,9 @@ between samples (Beta Diversity)</a></p>
   <li>
     <p><a href="report_files/advance_analysis.html">Further
 advanced analysis and statistical tests</a></p>
+  </li>
+<li>
+    <p><a  href="report_files/results_otu_org.html"> Original OTU tables and files </a></p>
   </li>
   <li>
     <p><a  href="report_files/references_faqs.html">References
@@ -107,61 +98,6 @@ will open the webpage or graphs in a new browser tab/window<br>
 EOF
 #----------End:Report Overview-------------------#
 
-#----------Start:Quick Browse (selected results and plots) ------------------------------#
-
-cat <<EOF >report_files/quick_browse.html
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-  <meta content="text/html; charset=ISO-8859-1"
- http-equiv="content-type">
-  <title>Quick Browse (selected results and plots)</title>
-</head>
-<body
- style="background-color: white; width: 1200px; color: rgb(0, 0, 0);"
- alink="#ee0000" link="#0000ee" vlink="#551a8b">
-<span style="font-family: Verdana;"></span><br
- style="font-family: Verdana;">
-<br style="font-family: Verdana;">
-<div style="margin-left: 40px; font-family: Verdana;"><span
- style="color: black;"><a href ="../microbiome_report.html" >Home</a> -&gt; Quick Browse (selected results and plots)
-<br><br></span>
-<table style="text-align: left; width: 1160px; height: 54px;"
- border="0" cellpadding="0" cellspacing="0">
-  <tbody>
-    <tr>
-      <td style="color: white;">
-      <h2
- style="background-color: rgb(102, 102, 102); font-weight: normal;"><a
- name="Summarize OTUs by Taxonomic distrubution"></a> &nbsp; Quick Browse (selected results and plots)</h2>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<ol style="margin-left: 40px; font-family: Verdana;">
-  <li>
-  <p><b>OTU table (16S tags and its count): </b><a  href="../otu_table.org.txt">OTU Table (raw count)</a>&nbsp;&nbsp;&nbsp;<a  href="../seqs.fna_rep_set.org.fasta">16S Sequences</a>&nbsp;&nbsp;&nbsp;<a  href="../normalized_otu.txt">Normalized OTU</a>&nbsp;&nbsp;&nbsp;</p>
-  </li>
-  <li>
-<p><b>Taxonomy charts : </b><a  href="../taxa_summary/taxa_summary_plots/bar_charts.html">Bar Chart</a>&nbsp;&nbsp;&nbsp;<a  href="../taxa_summary/taxa_summary_plots/area_charts.html">Area Chart</a></p>
-  </li>
-  <li>
-  <p><b>Taxonomy distribution : </b><a href="../taxa_summary/otu_table_L2.txt">Phylum[L2]</a>&nbsp;&nbsp;&nbsp;<a href="../taxa_summary/otu_table_L3.txt">Class[L3]</a>&nbsp;&nbsp;&nbsp;<a href="../taxa_summary/otu_table_L4.txt">Order[L4]</a>&nbsp;&nbsp;&nbsp;<a href="../taxa_summary/otu_table_L5.txt">family[L5]</a>&nbsp;&nbsp;&nbsp;<a href="../taxa_summary/otu_table_L6.txt">Genus[6]</a>&nbsp;&nbsp;&nbsp;<a href="../taxa_summary/otu_table_L7.txt">Species[L7]</a></p>
-      </li>
-  <li>
-  <p><b>Diversity within sample (Alpha diversity) : </b> Using 5 different matrices <a href="../alpha_div.txt">Alpha_div</a></p>
-  </li>
-  <li>
-    <p><b>Diversity between samples (Beta diversity) : </b>Using 3 diff matrices <a href="../beta_div_matrices/unweighted_unifrac_otu_table_even.txt">UNIFRAC(unweighted)</a>&nbsp;&nbsp;&nbsp;<a href="../beta_div_matrices/weighted_unifrac_otu_table_even.txt">UNIFRAC(weighted)</a></p>
-  </li>
-<li>
-    <p><b>PCoA plot : </b>Principal Coordinate plot is based on unweighted unifrac <a  href="../beta_div/unweighted_unifrac_2d_continuous/unweighted_unifrac_pc_2D_PCoA_plots.html">2D Plot</a>&nbsp;&nbsp;&nbsp;<a  href="../beta_div/unweighted_unifrac_3d_continuous/unweighted_unifrac_pc_3D_PCoA_plots.html">3D Plot</a>&nbsp;&nbsp;&nbsp;<a  href="../beta_div/emperor_unif_unw/index.html">3D Plot(Emperor)</a></a></p>
-  </li>
-
-</ol>
-
-EOF
 
 
 #----------Start:Initial Sequencing Overview-------------------#
@@ -200,7 +136,7 @@ This
 section describes the&nbsp;samples and their sequencing statistics
 as they come from the sequencing machines. <br>
 <br>
-<h3> FWD READS </h3>
+<h3> FASTQ READS </h3>
 The table below&nbsp;shows the number of
 samples,&nbsp;sequences per
 sample and&nbsp;their initial quality statistics.<br><br>
@@ -223,6 +159,7 @@ done <fastqc_rawdata/qcstats.txt
 
 echo "</tbody></table>">>report_files/initial_overview.html
 fi
+if [ -e fastqc_rawdata/qcstats.txt ]; then
 cat <<EOF >>report_files/initial_overview.html
 
 <br>
@@ -240,6 +177,42 @@ Dowload the raw dataset (tab delimited format, right click -> save link as)<br>
 </ol>
 <br>
 EOF
+fi
+
+if [ -e fastqc_beforeqcf/qcstats.txt ]; then
+echo -e '<table style="text-align: left; width: 900px; height: 61px;margin-left: 60px;" border="1" cellpadding="2" cellspacing="1">'>>report_files/initial_overview.html
+echo -e "<thead><tr><th>Count</th><th>Sample Name</th><th>Sequences </th><th>Read Length </th> <th>GC Content </th><th> FastQC Plots</th></tr> </thead><tbody>">>report_files/initial_overview.html
+COUNT=1;
+
+while read line
+do
+        arrIN=(${line/// })
+fastqclink=${arrIN[0]/.fastq.gz/}
+echo "<tr><td>${COUNT}</td><td>${arrIN[0]}</td><td>${arrIN[1]}</td><td>${arrIN[2]}</td><td>${arrIN[3]}</td><td><a href=\"../fastqc_beforeqcf/${fastqclink}_fastqc/fastqc_report.html\" target=\"_blank\">FASTQC</a><img style=\"width: 14px; height: 13px;\" alt=\"\" src=\"oinw.gif\"></tr>">>report_files/initial_overview.html
+COUNT=$(($COUNT + 1 ));
+done <fastqc_beforeqcr/qcstats.txt
+
+echo "</tbody></table>">>report_files/initial_overview.html
+fi
+if [ -e fastqc_beforeqcf/qcstats.txt ]; then
+cat <<EOF >>report_files/initial_overview.html
+
+<br>
+<img style="width: 1000px; height: 700px;" alt=""
+ src="../fastqc_beforeqcf/FASTQCplot.png"><br>
+<br>
+Dowload the raw dataset (tab delimited format, right click -> save link as)<br>
+<ol>
+  <li>
+        <a href="../fastqc_beforeqcf/qcstats.txt" target="_blank">Sample stats file</a>
+  </li>
+  <li>
+        <a href="../fastqc_beforeqcf/qcplot.txt" target="_blank">Per base sequence quality file</a>
+</li>
+</ol>
+<br>
+EOF
+fi
 
 if [ -d fastqc_beforeqcr ]; then
 
@@ -384,7 +357,7 @@ cat <<EOF >report_files/sample_mapping.html
  style="font-family: Verdana;">
 <br style="font-family: Verdana;">
 <div style="margin-left: 40px; font-family: Verdana;"><span
- style="color: black;"><a href ="../microbiome_report.html" >Home</a> -&gt; Sample selected for analysis and mapping information<br><br></span>
+ style="color: black;"><a href ="../microbiome_report.html" >Home</a> -&gt; Mapping file and Analysis workflow<br><br></span>
 <table style="text-align: left; width: 1160px; height: 54px;"
  border="0" cellpadding="0" cellspacing="0">
   <tbody>
@@ -392,36 +365,23 @@ cat <<EOF >report_files/sample_mapping.html
       <td style="color: white;">
       <h2
  style="background-color: rgb(102, 102, 102); font-weight: normal;"><a
- name="Sample selected for analysis and mapping information"></a> &nbsp; Sample seleted for analysis and mapping information</h2>
+ name="Sample selected for analysis and mapping information"></a> &nbsp; Mapping file and Analysis workflow</h2>
       </td>
     </tr>
   </tbody>
 </table>
-<span style="color: black;">This section describes the samples selected (after the QC step) for the analysis. It also includes the number of OTUs (unique sequences identified across all the samples. It also includes the mapping file (samples attributes).</span><br
- style="color: black;"></br>
+<span style="color: black;">This section describes the sample mapping information (sample attributes). </span><br
+ style="color: black;">
 <br style="color: black;">
-<span style="color: black;"><b>Samples Selected and their stats (with OTU numbers)</b></span>
-</br></br>
 EOF
-
-
-echo -e "----------------------------------------------------------------------------------</br>">>report_files/sample_mapping.html
-if [ -e otu_table.org.stats ]; then
-while read line
-do
-echo -e "$line<br>">>report_files/sample_mapping.html
-done <otu_table.org.stats
-fi
-echo -e "----------------------------------------------------------------------------------</br>">>report_files/sample_mapping.html
-
 cat <<EOF >>report_files/sample_mapping.html
-</br></br><br style="color: black;">
-<span style="color: black;"><b>Mapping file</b></span>
-</br></br>
+
+<span style="color: black;"><b>-------------Mapping file</b></span>
+
 
 EOF
 
-echo -e "----------------------------------------------------------------------------------</br>">>report_files/sample_mapping.html
+echo -e "-----------------------------------------------</br>">>report_files/sample_mapping.html
 if [ -e mapping.txt ]; then
 while read line
 do
@@ -432,12 +392,39 @@ echo -e "-----------------------------------------------------------------------
 
 cat <<EOF >>report_files/sample_mapping.html
 
-<br></br></br>
-Dowload the raw dataset after applying QC measures (tab delimited format, right click -> save link as)<br>
+<br></br><br></br>
+<b> Data analysis workflow</b>
+<br><br>
+The data analysis workflow is going to generate two set of results. 
+<br>First set is the original OTU tables and other files on which no rarefaction (sample size normalization) and no rare OTU filtering was applied. All the files and folder generated in this step has suffix "_org" (original). This was used to generate taxonomy charts. This step is performed by script "script.sh". It includes the following steps
+<ul><li>Chimera Filtering using program "Usearch".</li>
+<li>OTU Clustering at 97% sequence similarity using program "uclust".</li>
+<li>Picking representative of OTUs based on abundance.</li>
+<li>Assigning taxonomy to OTUs using RDP classifier (threshold 0.8) using Greengenes database.</li>
+<li>Sorting OTU table based on file "sample_order.txt".</li>
+<li>Summarizing OTUs into taxonomic groups.</li>
+<li>Creating Normalized OTU table i.e. converting raw numbers from OTU table into proportion and also merging the taxa information in a single file.</li>
+<li>A filtered list of top 10, top 25 and top 100 OTUs and taxa are generated.</li>
+</ul>
+<br>
+Second set might appeal to most users. Here the OTU table is rarified to user supplied sample depth (or minimum sample depth present across the samples). The OTUs are then filtered which had average abundance <0.0005%. This generated a new filtered OTU table. All files and folder generated at this step has suffix "_fil". This was used to generate taxonomy bar charts, OTU Multiple Sequence Alignment, phylogenetic tree, alpha diversity, beta diversity etc. This step is achieved by script "script_adv.sh". It includes the following steps
+<ul>
+<li>The OTU table is rarified to user specified (or minimum) sample size.</li>
+<li>Rare OTUs are filtered at abundance level < 0.0005%.</li>
+<li>Summarizing OTUs into taxonomic groups.</li>
+<li>Creating Normalized OTU table i.e. converting raw numbers from OTU table into proportion and also merging the taxa information in a single file.</li>
+<li>A filtered list of top 10, top 25 and top 100 OTUs and taxa are generated.</li>
+<li>Generates a multiple sequence alignment ofOTUs using the program "PYNAST" and creates a phylogenetic tree using the program "FASTTREE"</li>
+<li>Calculates alpha diversity (using chao1, observed species, PD whole tree, shannon, and simpson diversity indices) and generates plots.</li>
+<li>Calculates beta diversity (using bray curtis, unweighted unifrac, and weighted
+unifrac distances) and generates plots.</li>
+<li>Generates a UPGMA tree of all samples.</li>
+</ul>
+</br>
+In the report the results based on normalized and filtered data is reported (steps 4-7). The unfiltered data and results are reported in (Step 9 - "Original OTU tables and files") only.
+</br></br></br>
+Dowload the raw files (tab delimited format, right click -> save link as)<br>
 <ol>
-  <li>
-        <a href="../otu_table.org.stats" target="_blank">Sample selected and OTU stats</a>
-  </li>
   <li>
         <a href="../mapping.txt" target="_blank">Mapping File</a>
 </li>
@@ -448,14 +435,14 @@ EOF
 
 
 
-#----------Start:Results: OTU table,16S Sequence and Taxonomic Identification---#
+#----------Start:Results: OTU tables (Normalized and Filtered)---#
 cat <<EOF >report_files/results_otu.html
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
   <meta content="text/html; charset=ISO-8859-1"
  http-equiv="content-type">
-  <title>Results: OTU table, 16S Sequence and Taxonomic Identification</title>
+  <title>Results: OTU tables (Normalized and Filtered)</title>
 </head>
 <body
  style="background-color: white; width: 1200px; color: rgb(0, 0, 0);"
@@ -464,7 +451,7 @@ cat <<EOF >report_files/results_otu.html
  style="font-family: Verdana;">
 <br style="font-family: Verdana;">
 <div style="margin-left: 40px; font-family: Verdana;"><span
- style="color: black;"><a href ="../microbiome_report.html" >Home</a> -&gt; Results: OTU table, 16S Sequence and Taxonomic Identification
+ style="color: black;"><a href ="../microbiome_report.html" >Home</a> -&gt; Results: OTU tables (Normalized and Filtered)
 <br><br></span>
 <table style="text-align: left; width: 1160px; height: 54px;"
  border="0" cellpadding="0" cellspacing="0">
@@ -473,7 +460,7 @@ cat <<EOF >report_files/results_otu.html
       <td style="color: white;">
       <h2
  style="background-color: rgb(102, 102, 102); font-weight: normal;">&nbsp;
-Results: OTU table,16S Sequence and Taxonomic Identification</h2>
+Results: OTU tables (Normalized and Filtered)</h2>
       </td>
     </tr>
   </tbody>
@@ -496,24 +483,30 @@ against <a
  href="http://qiime.org/home_static/dataFiles.html"
  target="_blank">Greengenes 16S databases</a><img style="width: 14px; height: 13px;" alt="" src="oinw.gif">.<br>
 <br>
+
+Briefly, the filtered sequences are clustered (97% identity) and then OTU tables are generated. Since OTU tables have different sample depth, it was rarified at a minimum (or user specified) sample depth. The OTU table is filtered where OTU abundunce < 0.0005%. The final filtered OTU table is used to generate Taxonomy charts and to calculate Aplha and Beta diversity.<br><br>
 <span style="font-weight: bold; color: rgb(153, 0, 0);">Download
 the raw dataset</span> (tab delimited text format)<br>
 </span>
 <ol>
-  <li><a href="../otu_table.org.txt" target="_blank">OTU table</a>
+
+<li><a href="../otu_table_fil.stats.txt"
+ target="_blank">Sequence Stats</a> - This file has sequence statistics used in the analysis. The file can be opened in any text editer (Notepad)</li>
+
+  <li><a href="../otu_table_fil.txt" target="_blank">OTU table</a>
 - This file has the&nbsp;list of all OTUs identified in the current
 analysis. It also include the raw count of reads for each OTU in 
 each sample. Each OTU has the taxonomic information identified.
-Note: Different samples may have different read depth, and the numbers
-presented here are not normalized for differences in read depth. This
-means that these numbers can't be used directly for any statistical
-comparision. This file is also present in <a
- href="../otu_table.org.biom" target="_blank">.biom format</a>.</li>
-  <li><a href="../seqs.fna_rep_set.org.fasta"
+This file is also present in <a
+ href="../otu_table_fil.biom" target="_blank">.biom format</a>.</li>
+  <li><a href="../seqs.fna_rep_set_fil.fasta"
  target="_blank">OTU
 fasta sequence</a> - This file has list of all OTU
 sequences present in the OTU table.</li>
-  <li><a href="../phylogeny.tre" target="_blank">OTU
+ <li><a href="../pynast_aligned/seqs.fna_rep_set_fil_aligned.fasta" target="_blank">OTU
+Multiple sequence alignment</a> - The MSA was generated using PYNAST. Later the MSA was filtered to remove common gaps generateing a <a href="../filtered_alignment/seqs.fna_rep_set_fil_aligned_pfiltered.fasta" target="_blank">filtered alignment file.</a> </li>
+
+<li><a href="../phylogeny.tre" target="_blank">OTU
 phylogenetic tree</a> - The phylogenetic tree of all OTUs.</li>
 </ol>
 <br><br>
@@ -521,15 +514,15 @@ phylogenetic tree</a> - The phylogenetic tree of all OTUs.</li>
 in-house processed dataset </span> (tab delimited text format)<br>
 </span>
 <ol>
-<li><a href="../normalized_otu.txt"> OTU table (Normalized)</a> - The OTU table present above
+<li><a href="../normalized_otu_fil.txt"> OTU table (Normalized)</a> - The OTU table present above
 is normalised (converted into proportion) and the actual 16S sequence 
 is also mapped into it.</li>
 <li>Filtered OTU table (Normalized) - The normalized OTU table present above is filtered to select the top/most abundunt OTUs</li>
 <ul>
-<li><a href="../filter_heatmap/normalized_otu_top10.txt"> Top10 OTU</a> </li>
-<li><a href="../filter_heatmap/normalized_otu_top25.txt"> Top25 OTU</a> </li>
-<li><a href="../filter_heatmap/normalized_otu_top50.txt"> Top50 OTU</a> </li>
-<li><a href="../filter_heatmap/normalized_otu_top100.txt"> Top100 OTU</a> </li>
+<li><a href="../top_otu_taxa_fil/normalized_otu_top10.txt"> Top10 OTU</a> </li>
+<li><a href="../top_otu_taxa_fil/normalized_otu_top25.txt"> Top25 OTU</a> </li>
+<li><a href="../top_otu_taxa_fil/normalized_otu_top50.txt"> Top50 OTU</a> </li>
+<li><a href="../top_otu_taxa_fil/normalized_otu_top100.txt"> Top100 OTU</a> </li>
 
 </ul>
 
@@ -564,8 +557,172 @@ EOF
 #----------End:Results: OTU table,16S Sequence and Taxonomic Identification---#
 
 
+#----------Start:Original OTU tables and files ---#
+cat <<EOF >report_files/results_otu_org.html
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Original OTU tables and files </title>
+</head>
+<body
+ style="background-color: white; width: 1200px; color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#551a8b">
+<span style="font-family: Verdana;"></span><br
+ style="font-family: Verdana;">
+<br style="font-family: Verdana;">
+<div style="margin-left: 40px; font-family: Verdana;"><span
+ style="color: black;"><a href ="../microbiome_report.html" >Home</a> -&gt; Original OTU tables and files
+<br><br></span>
+<table style="text-align: left; width: 1160px; height: 54px;"
+ border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="color: white;">
+      <h2
+ style="background-color: rgb(102, 102, 102); font-weight: normal;">&nbsp;
+Original OTU tables and files</h2>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<span style="color: black;">
+Here, the filtered sequences are clustered (97% identity) and then OTU tables are generated. The OTU tables have raw numbers and this is not normalized for different sample depth. This data is not filtered for rare OTUs. The OTU table is used to generate Taxonomy charts<br><br>
+<span style="font-weight: bold; color: rgb(153, 0, 0);">Download
+the raw dataset</span> (tab delimited text format)<br>
+</span>
+<ol>
 
+<li><a href="../otu_table_org.stats.txt"
+ target="_blank">Sequence Stats</a> - This file has sequence statistics used in the analysis. The file can be opened in any text editer (Notepad)</li>
 
+  <li><a href="../otu_table_org.txt" target="_blank">OTU table</a>
+- This file has the&nbsp;list of all OTUs identified in the current
+analysis. It also include the raw count of reads for each OTU in
+each sample. Each OTU has the taxonomic information identified.
+This file is also present in <a
+ href="../otu_table_org.biom" target="_blank">.biom format</a>.</li>
+  <li><a href="../seqs.fna_rep_set_org.fasta"
+ target="_blank">OTU
+fasta sequence</a> - This file has list of all OTU
+sequences present in the OTU table.</li>
+</ol>
+<br><br>
+<span style="font-weight: bold; color: rgb(153, 0, 0);">Download
+in-house processed dataset </span> (tab delimited text format)<br>
+</span>
+<ol>
+<li><a href="../normalized_otu_org.txt"> OTU table (Normalized)</a> - The OTU table present above
+is normalised (converted into proportion) and the actual 16S sequence
+is also mapped into it.</li>
+<li>Filtered OTU table (Normalized) - The normalized OTU table present above is filtered to select the top/most abundunt OTUs</li>
+<ul>
+<li><a href="../top_otu_taxa_org/normalized_otu_top10.txt"> Top10 OTU</a> </li>
+<li><a href="../top_otu_taxa_org/normalized_otu_top25.txt"> Top25 OTU</a> </li>
+<li><a href="../top_otu_taxa_org/normalized_otu_top50.txt"> Top50 OTU</a> </li>
+<li><a href="../top_otu_taxa_org/normalized_otu_top100.txt"> Top100 OTU</a> </li>
+
+</ul>
+
+</ol>
+<p><span style="font-weight: bold;"><span
+ style="color: rgb(153, 0, 0);"></span></span></p></br>
+<p><span style="font-weight: bold;"><span
+ style="color: rgb(153, 0, 0);">Taxonomic
+distribution plots</span> </span></p>
+<p><a href="../taxa_summary_org/taxa_summary_plots/bar_charts.html"
+ target="_blank">Bar Plot of Taxonomic
+distribution</a><img style="width: 14px; height: 13px;" alt="" src="oinw.gif"></p>
+<p><a
+ href="../taxa_summary_org/taxa_summary_plots/area_charts.html"
+ target="_blank">Area
+Plot of Taxonomic
+distribution</a><img style="width: 14px; height: 13px;" alt="" src="oinw.gif"> &nbsp;
+<br>
+</p>
+<br>
+<br>
+
+<span style="font-weight: bold; color: rgb(153, 0, 0);"> OTUs categorised into taxonomy and filtered data - </span> The OTU table (at various taxonomic level) is filtered here to choose the top 10/25/50 taxa based on global abundunce.(tab
+delimited format, right click -&gt; save link as)<br>
+<br>
+
+<table
+ style="text-align: left; background-color: rgb(246, 246, 246);"
+ border="1" cellpadding="5" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="font-weight: bold;">Original taxonomy File (Level) </td>
+      <td style="font-weight: bold;">Top10 Taxa </td>
+      <td style="font-weight: bold;">Top25 Taxa </td>
+      <td style="font-weight: bold;">Top50 Taxa </td>
+    </tr>
+    <tr>
+      <td><a href="../taxa_summary_org/otu_table_org_L2.txt" >OTU table Level2 (phylum) </a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L2_top10.txt">Top10</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L2_top25.txt">Top25</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L2_top50.txt">Top50</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="../taxa_summary_org/otu_table_org_L3.txt" >OTU table Level3 (class) </a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L3_top10.txt">Top10</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L3_top25.txt">Top25</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L3_top50.txt">Top50</a></td>
+    </tr>
+    <tr>
+      <td><a href="../taxa_summary_org/otu_table_org_L4.txt" >OTU table Level4 (order) </a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L4_top10.txt">Top10</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L4_top25.txt">Top25</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L4_top50.txt">Top50</a></td>
+    </tr>
+    <tr>
+      <td><a href="../taxa_summary_org/otu_table_org_L5.txt" >OTU table Level5 (family) </a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L5_top10.txt">Top10</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L5_top25.txt">Top25</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L5_top50.txt">Top50</a></td>
+    </tr>
+    <tr>
+      <td><a href="../taxa_summary_org/otu_table_org_L6.txt" >OTU table Level6 (genus) </a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L6_top10.txt">Top10</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L6_top25.txt">Top25</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L6_top50.txt">Top50</a></td>
+    </tr>
+    <tr>
+      <td><a href="../taxa_summary_org/otu_table_org_L7.txt" >OTU table Level7 (species) </a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L7_top10.txt">Top10</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L7_top25.txt">Top25</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_org/otu_table_L7_top50.txt">Top50</a></td>
+    </tr>
+</tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+</body>
+</html>
+
+EOF
+
+#end - Original OTU tables and files 
 
 #----------Start:Summarize taxonomy ------------------------------#
 
@@ -615,11 +772,11 @@ Rubrobacteraceae.</span></p>
 <p><span style="font-weight: bold;"><span
  style="color: rgb(153, 0, 0);">Taxonomic
 distribution plots</span> </span></p>
-<p><a href="../taxa_summary/taxa_summary_plots/bar_charts.html"
+<p><a href="../taxa_summary_fil/taxa_summary_plots/bar_charts.html"
  target="_blank">Bar Plot of Taxonomic
 distribution</a><img style="width: 14px; height: 13px;" alt="" src="oinw.gif"></p>
 <p><a
- href="../taxa_summary/taxa_summary_plots/area_charts.html"
+ href="../taxa_summary_fil/taxa_summary_plots/area_charts.html"
  target="_blank">Area
 Plot of Taxonomic
 distribution</a><img style="width: 14px; height: 13px;" alt="" src="oinw.gif"> &nbsp;
@@ -643,41 +800,41 @@ delimited format, right click -&gt; save link as)<br>
       <td style="font-weight: bold;">Top50 Taxa </td>
     </tr>
     <tr>
-      <td><a href="../taxa_summary/otu_table_L2.txt" >OTU table Level2 (phylum) </a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L2_top10.txt">Top10</a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L2_top25.txt">Top25</a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L2_top50.txt">Top50</a></td>
+      <td><a href="../taxa_summary_fil/otu_table_fil_L2.txt" >OTU table Level2 (phylum) </a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L2_top10.txt">Top10</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L2_top25.txt">Top25</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L2_top50.txt">Top50</a></td>
     </tr>
 
     <tr>
-      <td><a href="../taxa_summary/otu_table_L3.txt" >OTU table Level3 (class) </a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L3_top10.txt">Top10</a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L3_top25.txt">Top25</a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L3_top50.txt">Top50</a></td>
+      <td><a href="../taxa_summary_fil/otu_table_fil_L3.txt" >OTU table Level3 (class) </a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L3_top10.txt">Top10</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L3_top25.txt">Top25</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L3_top50.txt">Top50</a></td>
     </tr>
     <tr>
-      <td><a href="../taxa_summary/otu_table_L4.txt" >OTU table Level4 (order) </a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L4_top10.txt">Top10</a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L4_top25.txt">Top25</a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L4_top50.txt">Top50</a></td>
+      <td><a href="../taxa_summary_fil/otu_table_fil_L4.txt" >OTU table Level4 (order) </a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L4_top10.txt">Top10</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L4_top25.txt">Top25</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L4_top50.txt">Top50</a></td>
     </tr>
     <tr>
-      <td><a href="../taxa_summary/otu_table_L5.txt" >OTU table Level5 (family) </a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L5_top10.txt">Top10</a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L5_top25.txt">Top25</a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L5_top50.txt">Top50</a></td>
+      <td><a href="../taxa_summary_fil/otu_table_fil_L5.txt" >OTU table Level5 (family) </a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L5_top10.txt">Top10</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L5_top25.txt">Top25</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L5_top50.txt">Top50</a></td>
     </tr>
     <tr>
-      <td><a href="../taxa_summary/otu_table_L6.txt" >OTU table Level6 (genus) </a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L6_top10.txt">Top10</a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L6_top25.txt">Top25</a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L6_top50.txt">Top50</a></td>
+      <td><a href="../taxa_summary_fil/otu_table_fil_L6.txt" >OTU table Level6 (genus) </a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L6_top10.txt">Top10</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L6_top25.txt">Top25</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L6_top50.txt">Top50</a></td>
     </tr>
     <tr>
-      <td><a href="../taxa_summary/otu_table_L7.txt" >OTU table Level7 (species) </a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L7_top10.txt">Top10</a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L7_top25.txt">Top25</a></td>
-      <td>&nbsp;&nbsp;&nbsp;<a href="../filter_heatmap/otu_table_L7_top50.txt">Top50</a></td>
+      <td><a href="../taxa_summary_fil/otu_table_fil_L7.txt" >OTU table Level7 (species) </a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L7_top10.txt">Top10</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L7_top25.txt">Top25</a></td>
+      <td>&nbsp;&nbsp;&nbsp;<a href="../top_otu_taxa_fil/otu_table_L7_top50.txt">Top50</a></td>
     </tr>
 
 
@@ -1072,7 +1229,6 @@ the distances between the samples in a 2D plot and 3D plot. In the table "dm" st
       <td style="font-weight: bold;">Beta Diversity
 matrices (dm pc)</td>
       <td style="font-weight: bold;">2D plot</td>
-      <td style="font-weight: bold;">3D plot</td>
       <td style="font-weight: bold;">3D plot (Emperor)</td>
       <td style="font-weight: bold;">UPGMA Tree</td>
     </tr>
@@ -1083,9 +1239,6 @@ matrices (dm pc)</td>
  target="_blank">pc</a> )</td>
       <td style="text-align: center;"><a
  href="../beta_div/bray_curtis_2d_continuous/bray_curtis_pc_2D_PCoA_plots.html"
- target="_blank">Link</a><img style="width: 14px; height: 13px;" alt="" src="oinw.gif"></td>
-      <td style="text-align: center;"><a
- href="../beta_div/bray_curtis_3d_continuous/bray_curtis_pc_3D_PCoA_plots.html"
  target="_blank">Link</a><img style="width: 14px; height: 13px;" alt="" src="oinw.gif"></td>
  <td style="text-align: center;"><a
   href="../beta_div/emperor_bray/index.html"
@@ -1104,9 +1257,6 @@ matrices (dm pc)</td>
       <td style="text-align: center;"><a
  href="../beta_div/unweighted_unifrac_2d_continuous/unweighted_unifrac_pc_2D_PCoA_plots.html"
  target="_blank">Link</a><img style="width: 14px; height: 13px;" alt="" src="oinw.gif"></td>
-      <td style="text-align: center;"><a
- href="../beta_div/unweighted_unifrac_3d_continuous/unweighted_unifrac_pc_3D_PCoA_plots.html"
- target="_blank">Link</a><img style="width: 14px; height: 13px;" alt="" src="oinw.gif"></td>
   <td style="text-align: center;"><a
     href="../beta_div/emperor_unif_unw/index.html"
        target="_blank">Link</a><img style="width: 14px; height: 13px;" alt="" src="oinw.gif"></td>
@@ -1122,9 +1272,6 @@ matrices (dm pc)</td>
  target="_blank">pc</a> )</td>
       <td style="text-align: center;"><a
  href="../beta_div/weighted_unifrac_2d_continuous/weighted_unifrac_pc_2D_PCoA_plots.html"
- target="_blank">Link</a><img style="width: 14px; height: 13px;" alt="" src="oinw.gif"></td>
-      <td style="text-align: center;"><a
- href="../beta_div/weighted_unifrac_3d_continuous/weighted_unifrac_pc_3D_PCoA_plots.html"
  target="_blank">Link</a><img style="width: 14px; height: 13px;" alt="" src="oinw.gif"></td>
   <td style="text-align: center;"><a
     href="../beta_div/emperor_unif_wei/index.html"
@@ -1185,7 +1332,7 @@ cat <<EOF >report_files/advance_analysis.html
   </tbody>
 </table>
 
-Many different aspects of microbiome analysis can be explored further using more sophisticated statustical analysis available in the QIIME package. For example
+Many different aspects of microbiome analysis can be explored further using more sophisticated statustical analysis available in the QIIME package or using R . For example
 <ol>
   <li>Is there any statistical difference
 between&nbsp;biological samples (control vs treatment or different

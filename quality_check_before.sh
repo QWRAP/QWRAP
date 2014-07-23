@@ -25,17 +25,27 @@ if [ ! -d $FWD_READ_FOLDER ] || [ "$FWD_READ_FOLDER" = "" ]
 then
   echo -e "\nERROR : FOLDER containing the raw data \"${FWD_READ_FOLDER}\" is not found"
   echo -e "\nPlease run the program as \nquality_check_before.sh FWD_READ_FOLDER REV_READ_FOLDER"
-#  echo -e "\nTerminating the program...\n"
-#exit
-else
+  echo -e "\nTerminating the program...\n"
+exit
+fi
+
+if [ ! -d $REV_READ_FOLDER ] || [ "$REV_READ_FOLDER" = "" ]
+then
+  echo -e "\nERROR : FOLDER containing the raw data \"${REV_READ_FOLDER}\" is not found"
+  echo -e "\nPlease run the program as \nquality_check_before.sh FWD_READ_FOLDER REV_READ_FOLDER"
+  echo -e "\nTerminating the program...\n"
+exit
+fi
+
 
 # Reading the FWD READS
 
-  rm -r fastqc_beforeqcf
+  rm -rf fastqc_beforeqcf
   mkdir fastqc_beforeqcf
 
   echo -e "\nRunning the FASTQC program on all the fastq.gz files in folder \"${FWD_READ_FOLDER}\"\n"
-  fastqc --nogroup ${FWD_READ_FOLDER}*.fastq.gz -o fastqc_beforeqcf
+  fastqc --nogroup ${FWD_READ_FOLDER}/*.fastq.gz -o fastqc_beforeqcf
+  fastqc --nogroup ${FWD_READ_FOLDER}/*.fastq -o fastqc_beforeqcf
   echo -e "\nFastqc run completed from folder ${FWD_READ_FOLDER}\n"
 
   cd fastqc_beforeqcf
@@ -49,25 +59,19 @@ else
   cd ..
   echo -e "\nFastqc analysis done. Please check the HTML report \"report_overview.sh\"\n"
 
-fi
+
 
 echo -e "-----------------------------------------------------\n"
 
-if [ ! -d $REV_READ_FOLDER ] || [ "$REV_READ_FOLDER" = "" ]
-then
-  echo -e "\nERROR : FOLDER containing the raw data \"${REV_READ_FOLDER}\" is not found"
-  echo -e "\nPlease run the program as \nquality_check_before.sh FWD_READ_FOLDER REV_READ_FOLDER"
-#  echo -e "\nTerminating the program...\n"
-#exit
-else
 
 # Reading the REV READS
 
-  rm -r fastqc_beforeqcr
+  rm -rf fastqc_beforeqcr
   mkdir fastqc_beforeqcr
 
   echo -e "\nRunning the FASTQC program on all the fastq.gz files in folder \"${REV_READ_FOLDER}\"\n"
-  fastqc --nogroup ${REV_READ_FOLDER}*.fastq.gz -o fastqc_beforeqcr
+  fastqc --nogroup ${REV_READ_FOLDER}/*.fastq.gz -o fastqc_beforeqcr
+  fastqc --nogroup ${REV_READ_FOLDER}/*.fastq -o fastqc_beforeqcr
   echo -e "\nFastqc run completed from folder ${REV_READ_FOLDER}\n"
 
   cd fastqc_beforeqcr
@@ -81,5 +85,4 @@ else
   cd ..
   echo -e "\nFastqc analysis done. Please check the HTML report \"report_overview.sh\"\n"
 
-fi
 
