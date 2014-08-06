@@ -136,7 +136,7 @@ This
 section describes the&nbsp;samples and their sequencing statistics
 as they come from the sequencing machines. <br>
 <br>
-<h3> FASTQ READS </h3>
+<h3> FWD READS </h3>
 The table below&nbsp;shows the number of
 samples,&nbsp;sequences per
 sample and&nbsp;their initial quality statistics.<br><br>
