@@ -92,7 +92,7 @@ echo -e "">>script.sh
 echo '#----------- OTU table statistics ORG-------------------------------'>>script.sh
 echo -e 'echo "Time: `date`"' >>script.sh
 echo -e 'echo "Running: OTU table statistics"'>>script.sh
-echo 'print_biom_table_summary.py -i otu_table_org.biom > otu_table_org.stats.txt'>>script.sh
+echo 'biom summarize-table -i otu_table_org.biom > otu_table_org.stats.txt'>>script.sh
 echo -e "">>script.sh
 
 echo '#------- Summarizing taxa information(ORG)-------'>>script.sh
