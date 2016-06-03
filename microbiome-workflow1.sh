@@ -92,7 +92,7 @@ echo -e "">>script.sh
 echo '#----------- OTU table statistics ORG-------------------------------'>>script.sh
 echo -e 'echo "Time: `date`"' >>script.sh
 echo -e 'echo "Running: OTU table statistics"'>>script.sh
-echo 'print_biom_table_summary.py -i otu_table_org.biom > otu_table_org.stats.txt'>>script.sh
+echo 'biom summarize-table -i otu_table_org.biom > otu_table_org.stats.txt'>>script.sh
 echo -e "">>script.sh
 
 echo '#------- Summarizing taxa information(ORG)-------'>>script.sh
@@ -105,7 +105,7 @@ echo -e "">>script.sh
 echo '#------------------ Convert BIOM file to TXT file----------------'>>script.sh
 echo -e 'echo "Time: `date`"' >>script.sh
 echo -e 'echo "Running: Converting BIOM file to TXT file"'>>script.sh
-echo 'convert_biom.py -i otu_table_org.biom -o otu_table_org.txt -b --header_key taxonomy --output_metadata_id "ConsensusLineage"'>>script.sh
+echo 'biom convert -i otu_table_org.biom -o otu_table_org.txt --to-tsv --header-key taxonomy --output-metadata-id "ConsensusLineage"'>>script.sh
 echo -e "">>script.sh
 
 
